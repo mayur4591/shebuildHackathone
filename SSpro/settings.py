@@ -32,7 +32,7 @@ SECRET_KEY = 'django-insecure-0ie9rdttckqhxo!o$rqb(j44t4ex*3=mqj3yj8bj#oc$cjl*3&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['.vercel.app', '.now.sh']
 AUTH_USER_MODEL = 'SSapp.User'
 
 # Application definition
@@ -135,6 +135,7 @@ STATICFILES = [
     os.path.join(BASE_DIR,'static')
 ]
 
+
 MEDIA_ROOT =  os.path.join(BASE_DIR,'static/images/')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
@@ -152,3 +153,9 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'patilsaurabh7777777@gmail.com'
 EMAIL_HOST_PASSWORD = "dhwrvrfpdidpgrmc"
+
+
+
+STATICFILES_DIRS = os.path.join(BASE_DIR,'static'),
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static')
+
