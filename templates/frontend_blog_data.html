@@ -1,0 +1,49 @@
+
+
+
+{% extends 'frontend_base.html' %}
+{% load static %}
+{% block body %}
+
+{% for message in messages %}
+<div class="alert alert-info alert-dismissible fade show" style="position:absolute;z-index:20;width:100%;" role="alert">
+  <strong> {{ message }} </strong>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+{% endfor %}
+
+
+{% if blog_data %}
+
+   <h4 class="mt-5 mb-5"><center>Your Posts</center></h4>
+
+{% else %}
+
+
+     <h4 class="mt-5 mb-5"><center>No posts yet</center></h4>
+
+{% endif %}
+
+   {% for post in blog_data%}
+   
+   <div class="container w-40 mb-5">
+   <div class="card mb-4">
+    <img class="card-img-top" src="{{post.image.url}}" alt="Card image cap">
+    <div class="card-body">
+      <h4 class="card-title">{{post.title}}</h4>
+      <p class="card-text">{{post.body | slice:':200' }}</p>
+      <a href="{% url 'blog_detail' post.slug %}" class="btn btn-danger">Read More</a>
+    </div>
+    <div class="card-footer text-muted">
+      Posted on {{post.created_on}} by
+      <a href="#">{{post.writer}}</a>
+    </div>
+  </div>
+</div>
+ 
+  
+   {% endfor %}
+   
+{% endblock body %}

@@ -1,0 +1,31 @@
+{% extends 'frontend_base.html' %}
+{% load static %}
+
+
+{% block body  %}
+
+
+<div align="center">
+    <h4 class="mt-5 mb-5">Django Chat</h4>
+</div>
+
+<style>
+
+
+
+
+    </style>
+<div class="container">
+    <form id="post-form" method="POST" action="checkview">
+        {% csrf_token %}
+        <label>Room Name</label>
+        <input type="text" class="form-control" name="room_name" id="room_name" width="100px" />
+        <input type="hidden" name="username" id="username" width="100px" />
+        <input type="submit" class="btn btn-danger mt-5 mb-5" value="Enter Room">
+    </form>
+</div>
+
+
+
+
+{% endblock body %}
